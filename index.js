@@ -1,9 +1,8 @@
+const PORT = process.env.PORT || 5000;
 const express = require('express');
-const socket = require('socket.io');
-
-const PORT = 5000;
-
 const app = express();
+
+const socket = require('socket.io');
 
 const server = app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
@@ -90,7 +89,6 @@ io.on('connection', (socket) => {
   });
 
   socket.on('user-hanged-up', (data) => {
-    console.log('handling user hanged up');
     io.to(data.connectedUserSocketId).emit('user-hanged-up');
   });
 });
