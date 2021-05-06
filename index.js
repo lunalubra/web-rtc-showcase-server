@@ -7,7 +7,6 @@ const app = express();
 
 const server = app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
-  console.log(`http://localhost:${PORT}`);
 });
 
 const io = socket(server, {
